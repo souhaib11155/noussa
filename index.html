@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#100d18">
+<title>A little something for Noussa ✦</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+:root{--ink:#f8eff5;--muted:#c0b0bf;--pink:#f29ab9;--rose:#bd617f;--gold:#e9c99b;--panel:#211927}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;color:var(--ink);font-family:'Space Grotesk',sans-serif;background:#100d18;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;z-index:-5;background:radial-gradient(ellipse at 12% 15%,#522a48 0,transparent 36%),radial-gradient(ellipse at 88% 22%,#263450 0,transparent 34%),radial-gradient(ellipse at 50% 100%,#452235 0,transparent 42%),#100d18;animation:aurora 18s ease-in-out infinite alternate}
+@keyframes aurora{0%{filter:hue-rotate(0deg);background-position:0 0,100% 0,50% 100%}100%{filter:hue-rotate(18deg);background-position:10% 10%,90% 20%,40% 90%}}
+.grain{position:fixed;inset:0;pointer-events:none;z-index:20;opacity:.07;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E")}
+#sky,.particles{position:fixed;inset:0;pointer-events:none;overflow:hidden}
+#sky{z-index:-2}.particles{z-index:8}
+.star{position:absolute;width:2px;height:2px;border-radius:50%;background:#fff;box-shadow:0 0 8px #fff;animation:twinkle var(--d) ease-in-out infinite alternate}
+@keyframes twinkle{0%{opacity:.12;transform:scale(.6)}100%{opacity:.95;transform:scale(1.5)}}
+.shooting{position:absolute;width:110px;height:1px;background:linear-gradient(90deg,#fff0,#ffe7f2,#fff0);transform:rotate(-35deg);animation:shoot 4s linear infinite;opacity:0}
+@keyframes shoot{0%{opacity:0;transform:translate(0,0) rotate(-35deg)}5%{opacity:1}25%{opacity:0;transform:translate(-260px,160px) rotate(-35deg)}100%{opacity:0;transform:translate(-260px,160px) rotate(-35deg)}}
+header{min-height:96vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:85px 22px 80px;position:relative}
+.hero{max-width:850px;animation:heroIn 1.3s cubic-bezier(.2,.8,.2,1) both}
+@keyframes heroIn{from{opacity:0;transform:translateY(35px) scale(.97);filter:blur(8px)}to{opacity:1;transform:none;filter:blur(0)}}
+.eyebrow{font:10px 'DM Mono',monospace;letter-spacing:.34em;color:var(--gold);text-transform:uppercase}
+h1{font:clamp(66px,14vw,142px)/.9 'Playfair Display',serif;letter-spacing:-.065em;margin:28px 0 22px;text-shadow:0 0 55px #f29ab933}
+h1 em{color:var(--pink);font-weight:500;display:inline-block;animation:nameGlow 4s ease-in-out infinite}
+@keyframes nameGlow{50%{text-shadow:0 0 28px #f29ab977,0 0 70px #f29ab933}}
+.sub{color:var(--muted);font-size:15px;line-height:1.9;max-width:570px;margin:auto}
+.stamp{display:inline-block;margin-top:36px;border:1px solid #f29ab977;color:#f6c8d9;padding:12px 18px;border-radius:2px;font:10px 'DM Mono',monospace;letter-spacing:.16em;transform:rotate(-2deg);animation:stampFloat 4s ease-in-out infinite}
+@keyframes stampFloat{50%{transform:rotate(2deg) translateY(-8px);box-shadow:0 0 30px #f29ab922}}
+.scroll{position:absolute;bottom:27px;left:50%;transform:translateX(-50%);font:10px 'DM Mono',monospace;letter-spacing:.22em;color:#a392a5;animation:bob 2s ease-in-out infinite}
+@keyframes bob{50%{transform:translate(-50%,8px)}}
+main{max-width:1120px;margin:auto;padding:25px 22px 110px}
+.intro{text-align:center;margin:0 auto 42px;max-width:690px}.intro h2{font:italic 35px 'Playfair Display',serif;margin:0 0 14px}.intro p{color:var(--muted);line-height:1.9;font-size:14px}
+.divider{width:90px;height:1px;margin:25px auto;background:linear-gradient(90deg,transparent,var(--pink),transparent);animation:dividerPulse 3s infinite}
+@keyframes dividerPulse{50%{width:150px;opacity:.5}}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}
+.card{position:relative;min-height:230px;text-align:left;padding:25px;border:1px solid #ffffff22;border-radius:5px;background:linear-gradient(145deg,#2c2033dc,#151722ed);color:var(--ink);cursor:pointer;overflow:hidden;transition:transform .45s cubic-bezier(.2,.8,.2,1),border-color .4s,box-shadow .4s;opacity:0;transform:translateY(28px);animation:cardIn .8s ease forwards;animation-delay:var(--delay)}
+@keyframes cardIn{to{opacity:1;transform:translateY(0)}}
+.card:before{content:attr(data-symbol);position:absolute;right:13px;bottom:-25px;font:105px 'Playfair Display',serif;color:#f29ab912;transition:.55s;transform:rotate(-10deg)}
+.card:after{content:"";position:absolute;inset:-80% auto auto -70%;width:60%;height:250%;background:linear-gradient(90deg,transparent,#ffffff12,transparent);transform:rotate(25deg);transition:left .8s}
+.card:hover{transform:translateY(-9px) scale(1.015);border-color:#f29ab9aa;box-shadow:0 18px 50px #0006,0 0 28px #f29ab91c}
+.card:hover:before{transform:rotate(8deg) scale(1.2);color:#f29ab92e}
+.card:hover:after{left:130%}
+.num{font:10px 'DM Mono',monospace;color:var(--gold);letter-spacing:.17em}.month{font:italic 28px 'Playfair Display',serif;margin:20px 0 10px}.tease{font-size:12px;line-height:1.75;color:#c5b4c4;max-width:245px}.open{position:absolute;bottom:21px;left:25px;font:10px 'DM Mono',monospace;color:var(--pink);letter-spacing:.13em}
+.progress-wrap{text-align:center;margin:42px auto 0;color:#a998aa;font:10px 'DM Mono',monospace;letter-spacing:.15em}.progress{height:2px;background:#ffffff1c;margin:14px auto 0;max-width:230px}.progress span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--rose),#ffd1e2);box-shadow:0 0 12px var(--pink);transition:width .6s}
+footer{text-align:center;padding:55px 20px 75px;color:#948497;font:10px 'DM Mono',monospace;letter-spacing:.13em;line-height:2}
+.modal{position:fixed;inset:0;background:#08060ddd;z-index:15;display:none;align-items:center;justify-content:center;padding:18px;backdrop-filter:blur(15px)}
+.modal.show{display:flex;animation:fade .35s}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+.letter{width:min(720px,100%);max-height:88vh;overflow:auto;background:radial-gradient(ellipse at 90% 0,#51304977,transparent 42%),linear-gradient(145deg,#2b1e31,#151925);border:1px solid #f29ab977;padding:clamp(27px,6vw,58px);position:relative;box-shadow:0 25px 110px #000b;animation:letterIn .55s cubic-bezier(.2,.8,.2,1)}
+@keyframes letterIn{from{opacity:0;transform:translateY(35px) scale(.96) rotateX(5deg)}to{opacity:1;transform:none}}
+.close{position:absolute;right:18px;top:13px;background:none;border:0;color:#e8cbd9;font-size:28px;cursor:pointer;transition:transform .3s,color .3s}.close:hover{transform:rotate(90deg);color:#fff}
+.letter small{font:10px 'DM Mono',monospace;color:var(--gold);letter-spacing:.2em}.letter h2{font:italic clamp(31px,6vw,48px) 'Playfair Display',serif;margin:18px 0 27px;color:#f8dce8}.letter p{font-size:15px;line-height:2.05;color:#e7dce6;white-space:pre-line}.sign{font:italic 22px 'Playfair Display',serif;color:var(--pink);margin-top:32px}
+.floaty{position:absolute;bottom:-30px;pointer-events:none;animation:rise var(--dur) linear forwards;filter:drop-shadow(0 0 8px #f29ab966)}
+@keyframes rise{0%{transform:translateY(0) rotate(0) scale(.7);opacity:0}10%{opacity:.8}85%{opacity:.7}100%{transform:translateY(-110vh) rotate(260deg) scale(1.3);opacity:0}}
+.burst{position:fixed;z-index:30;pointer-events:none;font-size:16px;animation:burst .9s ease-out forwards}
+@keyframes burst{from{opacity:1;transform:translate(0,0) scale(.4)}to{opacity:0;transform:translate(var(--x),var(--y)) scale(1.6) rotate(150deg)}}
+@media(max-width:760px){.grid{grid-template-columns:repeat(2,1fr)}.card{min-height:215px;padding:20px}.open{left:20px}.month{font-size:25px}}
+@media(max-width:450px){.grid{grid-template-columns:1fr}.card{min-height:185px}.sub{font-size:14px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+<div class="grain"></div><div id="sky"></div><div class="particles" id="particles"></div>
+<header>
+ <div class="hero">
+  <div class="eyebrow">a small corner of the internet · especially for</div>
+  <h1>dear,<br><em>Noussa.</em></h1>
+  <p class="sub">Twelve little letters for twelve months. Nothing to celebrate, nothing to prove, and no big occasion needed. Just a collection of words, tiny reminders, and good wishes sent your way.</p>
+  <div class="stamp">OPEN ANY LETTER · ANYTIME ✦</div>
+ </div>
+ <div class="scroll">THERE'S MORE BELOW ↓</div>
+</header>
+<main>
+ <section class="intro">
+  <h2>A year, in little notes.</h2>
+  <div class="divider"></div>
+  <p>Some months need encouragement. Some need a laugh. Some just need someone to remind you to take a breath and enjoy being here. These letters are for all of them. Open whichever one feels right today.</p>
+ </section>
+ <section class="grid" id="grid"></section>
+ <div class="progress-wrap">LETTERS OPENED <span id="count">0 / 12</span><div class="progress"><span id="progress"></span></div></div>
+</main>
+<footer>A LITTLE WEBSITE, A LOT OF WORDS, AND TWELVE MONTHS OF GOOD WISHES.<br>MADE JUST FOR NOUSSA ✦</footer>
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="letterTitle">
+ <article class="letter"><button class="close" id="close" aria-label="Close">×</button><small id="letterNo"></small><h2 id="letterTitle"></h2><p id="letterText"></p><div class="sign">— a little note for you, Noussa ✦</div></article>
+</div>
+<script>
+const letters = [
+["November","A little beginning","Hello, Noussa. Here is the first note, arriving without a special occasion or a complicated explanation. I just hope this month treats you kindly. I hope you get a few mornings where getting out of bed feels easy, a few conversations that make you forget to check the time, and at least one moment that makes you think, “Okay, today was actually pretty nice.” If the month gets busy, remember that you are allowed to take things one at a time. You do not have to solve every problem today, answer every message immediately, or know exactly what comes next. Life is not a race with everybody else holding a stopwatch. Give yourself room to figure things out at your own pace. And please keep a little space in your days for things that are fun for absolutely no reason. You deserve that, too."],
+["December","A softer kind of ending","Well, Noussa, we have reached December: the month where everyone suddenly remembers every goal they ever made and starts acting like they have to become a completely different person before the year ends. Please do not fall for the annual panic. You do not need to transform your entire life in a few weeks. You have already lived through twelve months of ordinary days, unexpected changes, good moments, difficult moments, and probably a few situations that made you wonder what on earth was going on. That is a lot. Give yourself credit for the things nobody else noticed: the times you kept trying, the times you were patient, and the times you chose to keep going even when your motivation had disappeared. I hope December brings warm drinks, pretty lights, comfortable clothes, laughter that lasts too long, and people who make you feel welcome. Finish the year gently. You do not owe anyone a perfect ending."],
+["January","Please wear the warm coat","Noussa, important January announcement: PLEASE DRESS WARMLY. This is not a suggestion from a random website; this is a very serious public service announcement. Wear the coat, take the scarf, and do not decide that being cold is somehow part of an outfit. You can look effortlessly cool while being properly warm. Now that the weather lecture is over, I hope this month gives you a clean little beginning. Not the stressful kind where you write a list of seventeen things to fix about yourself, but the peaceful kind where you get to try again. Choose one or two things you would genuinely like to do. Make plans that leave room for rest. Let yourself change your mind. You are allowed to grow slowly, and you are allowed to have days when all you manage is getting through the day. I hope you find something to look forward to, even if it is something tiny. A favourite snack, a song on repeat, a nice sky, or a conversation that makes a normal afternoon feel special."],
+["February","Make room for lovely things","I hope February reminds you that happiness does not always arrive as one enormous, unforgettable event. Sometimes it is hidden in the smallest details: a message at exactly the right time, a song that understands your mood better than words can, the smell of something baking, a familiar joke, or a quiet evening when nothing particularly exciting happens and that is precisely why it feels good. Try not to rush past those moments while waiting for something bigger. Notice them. Keep them. Take pictures if you want, write them down if you remember, or simply let yourself enjoy them without needing to explain why. And when things feel a little heavy, please remember that you do not have to pretend everything is wonderful. You can have complicated feelings and still have good things ahead of you. I hope this month gives you reasons to smile that are completely unexpected, and enough calm moments to hear your own thoughts."],
+["March","You are allowed to learn as you go","A small reminder for March, Noussa: you are not supposed to have everything figured out. Nobody is secretly handed a complete instruction manual for life. Most people are improvising, making a few questionable decisions, learning from them, and hoping nobody notices the improvisation. So if you feel uncertain about something, that does not mean you are behind. It means you are human and you are still discovering what works for you. Give yourself permission to ask questions, to make mistakes, to start something and realise it is not for you, and to try again when you feel ready. You do not have to be brilliant at something immediately for it to be worth doing. Be patient with the version of yourself that is still learning. I hope March brings you a little confidence, a little curiosity, and the courage to take one small step toward something you want. Small steps still move you forward."],
+["April","Go collect a few good moments","April feels like a good month to look up from whatever has been keeping you busy. Notice the light in the late afternoon. Notice the trees changing, the flowers appearing, and the little details you normally walk past without thinking. Go outside when you can, even if you do not have a destination. Take the longer route once in a while. Listen to a song and pretend the world has excellent cinematography. You do not need to spend money or make an elaborate plan to have a lovely day. Sometimes a simple walk, a good conversation, or sitting somewhere peaceful can be enough. I hope you give yourself permission to enjoy ordinary things without feeling like you should be doing something more important. There will always be another task waiting. There will not always be this exact afternoon, with this exact light. Let a few moments belong only to you."],
+["May","A note about your own pace","If May gets busy, please remember that being busy and being valuable are not the same thing. You do not have to fill every hour to prove that you are doing enough. You do not have to compare your progress with somebody else's, because you are not living the same life or starting from the same place. Some things take longer than expected. Some plans change. Sometimes the bravest thing you can do is pause, rethink, and choose a different direction. I hope you are proud of yourself for more than achievements people can see. Be proud of the effort, the kindness, the patience, the little improvements, and the moments when you treated yourself with understanding. If something does not work out this month, it is not the end of your story. It is one event in a much bigger one. Keep going, but remember that you are allowed to rest along the way."],
+["June","A little summer happiness","June is here, which means it is time to drink water before your body has to send you a formal complaint. Find some shade, take breaks when it is hot, and please do not underestimate the power of a cold drink and a comfortable place to sit. More importantly, I hope summer gives you some memories that feel easy to keep. I hope there are days when you laugh so much that you forget what started it, evenings that stretch out in the nicest way, and songs that become permanently connected to a particular moment. Do something just because it sounds enjoyable. Rewatch something comforting, discover something new, spend time with people whose company feels natural, or have a day where the biggest plan is absolutely no plan. You do not need to make every day productive. Sometimes the best use of a day is simply enjoying it while it is here."],
+["July","Protect your peace","A little July reminder: you are allowed to have boundaries. You can be kind without saying yes to everything. You can care about people without carrying every problem they have. You can take time to reply, turn down an invitation, or step away from a situation that is making you uncomfortable. You do not need to write a whole essay explaining every decision. The people who respect you should also respect that you are a person with your own energy, feelings, and limits. I hope this month brings you people who make things feel lighter rather than harder, conversations where you can be yourself, and enough quiet time to recharge. And if you ever feel like you are falling behind, take a breath. You are not competing with anyone. Your life is not a group project where everybody else gets to decide your schedule. Make space for yourself, Noussa. It matters."],
+["August","A collection of little joys","For August, I have a small challenge for you: collect tiny joys. Not expensive things, not huge achievements, not moments that need to look impressive from the outside. Just little things that make you happy. A song you cannot stop playing. A snack that tastes better than it should. A funny conversation. A pretty cloud. A new favourite place. A message that makes you feel remembered. You could even make a little list in your phone, just for yourself. On a difficult day, you can look back and remember that good things have been finding their way to you, even when you were too busy to notice. I hope August gives you plenty to add to that collection. I hope you laugh often, sleep well, take pictures of things you want to remember, and let yourself enjoy the present instead of constantly waiting for the next thing. The small stuff is not actually small when it makes your day better."],
+["September","A new page, no pressure","September can feel like someone has turned the page before you were completely ready. Routines return, plans start moving again, and suddenly there are a hundred things asking for your attention. Take a breath, Noussa. You do not have to arrive at a new chapter as a perfectly organised person with a colour-coded schedule and unlimited motivation. Start with what you have. Make a plan that is realistic. Leave a little room for unexpected things. If you have a difficult day, it does not mean the whole month is going badly. If you need to change your approach, change it. You are allowed to figure things out while you are already doing them. I hope September brings fresh energy, interesting discoveries, and people who make even the busiest days feel a little easier. Most of all, I hope you remember that a new beginning does not require a new version of you. You can simply continue as yourself, with a little more experience than before."],
+["October","Look how far a year can go","And here we are at the last letter in this little collection. I hope that somewhere between November and now, you found a few moments you want to keep. Maybe something made you laugh unexpectedly. Maybe you learned something about yourself. Maybe a difficult situation became easier, or maybe you simply made it through a month that asked a lot from you. Whatever the year looked like, I hope you give yourself credit for being here. You do not have to measure a year only by big milestones. Sometimes growth is quiet: becoming a little more confident, learning what you need, getting better at saying no, finding something that makes you excited, or realising that you can handle more than you thought. I hope the months ahead surprise you in good ways. I hope you meet kind people, discover new favourites, and have plenty of reasons to laugh. And if the next chapter feels uncertain, that is okay. You do not need to know the whole story to look forward to the next page. Take care of yourself, Noussa. You deserve good things, in the ordinary days as much as the extraordinary ones."]
+];
+const symbols=["✦","☾","❄","♡","✧","✿","☀","☁","♢","☆","月","✴"];
+const grid=document.getElementById('grid');
+let opened=new Set();
+letters.forEach((l,i)=>{
+ const b=document.createElement('button');b.className='card';b.dataset.symbol=symbols[i];b.style.setProperty('--delay',(i*.075)+'s');
+ b.innerHTML=`<div class="num">A NOTE FOR YOU · ${String(i+1).padStart(2,'0')}</div><div class="month">${l[0]}</div><div class="tease">${l[1]}</div><div class="open">READ THIS NOTE ↗</div>`;
+ b.addEventListener('click',e=>{show(i);spark(e.clientX,e.clientY)});grid.appendChild(b);
+});
+function show(i){const l=letters[i];document.getElementById('letterNo').textContent=`NOTE ${String(i+1).padStart(2,'0')} · ${l[0].toUpperCase()}`;document.getElementById('letterTitle').textContent=l[1];document.getElementById('letterText').textContent=l[2];document.getElementById('modal').classList.add('show');opened.add(i);document.getElementById('count').textContent=opened.size+' / 12';document.getElementById('progress').style.width=(opened.size/12*100)+'%';}
+function hide(){document.getElementById('modal').classList.remove('show')}
+document.getElementById('close').addEventListener('click',hide);
+document.getElementById('modal').addEventListener('click',e=>{if(e.target.id==='modal')hide()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')hide()});
+function spark(x,y){for(let i=0;i<16;i++){const p=document.createElement('span');p.className='burst';p.textContent=['✦','♡','✧','·'][i%4];p.style.left=x+'px';p.style.top=y+'px';p.style.setProperty('--x',(Math.random()*220-110)+'px');p.style.setProperty('--y',(Math.random()*-180-20)+'px');document.body.appendChild(p);setTimeout(()=>p.remove(),1000)}}
+const sky=document.getElementById('sky');
+for(let i=0;i<125;i++){const s=document.createElement('i');s.className='star';s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';s.style.setProperty('--d',(2+Math.random()*5)+'s');s.style.animationDelay=Math.random()*5+'s';sky.appendChild(s)}
+for(let i=0;i<4;i++){const sh=document.createElement('i');sh.className='shooting';sh.style.top=(8+Math.random()*55)+'%';sh.style.left=(65+Math.random()*35)+'%';sh.style.animationDelay=(i*3.7+1)+'s';sky.appendChild(sh)}
+const particles=document.getElementById('particles'),glyphs=['✦','♡','✧','·','❀'];
+function floatParticle(){const p=document.createElement('span');p.className='floaty';p.textContent=glyphs[Math.floor(Math.random()*glyphs.length)];p.style.left=Math.random()*100+'%';p.style.fontSize=(10+Math.random()*17)+'px';p.style.setProperty('--dur',(9+Math.random()*9)+'s');particles.appendChild(p);setTimeout(()=>p.remove(),18000)}
+setInterval(floatParticle,650);for(let i=0;i<14;i++)setTimeout(floatParticle,i*280);
+</script>
+</body>
+</html>
